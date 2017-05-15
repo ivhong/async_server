@@ -1,0 +1,45 @@
+@startuml
+
+title 任务系统
+
+participant "Notify" AS N
+participant "Notify Content" as NC
+participant "队列（Redis）" as R
+participant "驱动器" as D
+note left of N
+	<color purple>任务系统的逻辑分成两个部分</color>
+		<color purple>1. 生成任务</color>
+		<color purple>2. 处理任务</color>
+	<color purple>他们之间通过队列来调度</color>
+	<color purple>**实线**部分为生成任务时的操作</color>
+	<color purple>**虚线**部分为处理任务时操作 //Cli//调用</color>
+
+	<color blue>任务系统的数据分为3种</color>
+		<color blue>1. 执行任务内容数据（简称“执行数据”）</color>
+		<color blue>2. 传输任务内容数据（简称“传输内容数据”）</color>
+		<color blue>3. 传输数据</color>
+
+	<color #990000>Notify Content （简称“NC”）负责3个功能</color>
+		<color #990000>1. 把传输内容数据封装成传输数据的工作</color>
+		<color #990000>2. 把传输数据解析成执行传输内容数据</color>
+		<color #990000>3. 根据传输内容数据取得驱动器，并发数据发给驱动器</color>
+
+	<color #000099>Notify （简称N）负责2个功能</color>
+		<color #000099>1. 从NC取到传输数据放入队列；</color>
+		<color #000099>2. 监听队列，从队列取出传输数据发给NC</color>
+end note
+N -> NC : 1.获得传输数据
+
+NC -> NC : 2.保存任务内容数据到数据库
+NC -> N : 3.返回任务内容数据id
+N -> R : 4.把传输数据压入队列
+N --> R : 1.监听队列
+R --> N : 2.出队
+N --> NC : 3.把出队的传输数据交给NC解析
+NC --> NC : 4.根据任务内容数据id获取任务内容数据，根据任务内容数据中的type设置驱动器
+note right: type 是生成任务内容数据时指定的\n请参考短信发送流程
+NC --> D : 5.发送任务内容数据交给驱动器处理
+D --> D : 6.驱动器通过任务内容数据中的kid来获取执行任务内容数据
+note left: kid 是执行任务内容数据时的主键\n请参考短信发送流程
+
+@enduml

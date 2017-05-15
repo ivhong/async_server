@@ -1,0 +1,22 @@
+@startuml
+(*) --> new base\ApiController
+    -->实例化时判断参数
+    if "参数ok" then
+        -->[yes] 设置属性
+        note left: 短信内容\n短信收件人\n短信备案名\n当前权限句柄\n当前用户\nRedis句柄
+        --> send 方法
+        --> 判断发送数量
+        if "ok" then
+            -->[yes] 初始化一条邮件记录并存放在MassSMS表
+            --> 生成一条NotifyData
+            --> 发送NotifyData
+            --> 成功
+        else
+            ->[false] 退出Code107
+        endif
+    else
+        ->[false] 退出Code103
+    endif
+
+    
+@enduml

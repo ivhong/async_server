@@ -1,0 +1,46 @@
+@startuml
+
+title 短信发送流程
+actor user
+participant "Email" as E
+box "Notify系统" #LightBlue
+	participant "Notify Content" as NC
+	participant "Notify" AS N
+	participant "队列（Redis）" as R
+	participant "驱动器（发短信驱动器）" as D
+end Box
+note left of user
+	任务系统的说明请参考任务系统UML
+
+
+	<color purple>**实线**部分为Web端操作</color>
+	<color purple>**虚线**部分为处理任务时操作 //Cli//调用</color>
+
+	<color blue>任务系统的数据分为3种</color>
+		<color blue>1. 执行任务内容数据（简称“执行数据”）</color>
+		<color blue>2. 传输任务内容数据（简称“传输内容数据”）</color>
+		<color blue>3. 传输数据</color>
+end note
+
+user -> E : 1.发送短信
+E -> E : 2.保存短信
+
+E -> NC : 3.注册传输内容数据：['type'=>'email', 'kid'=>短信id, 'type'=>sms] 
+NC -> E : 4.返回NC对象 
+E -> N : 5.把NC对象作为参数务交个N发送
+N -> NC : 6.获得传输数据内容
+NC -> NC : 7.保存传输内容数据到数据库
+NC -> N : 8.返回传输内容数据id
+N -> R : 9.把传输数据压入队列
+E -> user : 10.OK
+N --> R : 1.监听队列
+R --> N : 2.出队
+N --> NC : 3.把出队的传输数据交给NC解析
+NC --> NC : 4.根据传输内容数据id获取任务数据
+NC --> NC : 5.根据传输内容数据type（sms）设置Sms驱动器
+NC --> D : 6.发送传输内容数据给短信驱动器
+D --> D : 7.通过传输内容数据kid获得短信内容
+D --> D : 8.发短信
+
+
+@enduml

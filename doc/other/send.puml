@@ -1,0 +1,8 @@
+@startuml
+
+participant "Overseer" AS O
+participant "Task" as T
+participant "Worker" as W
+
+
+@enduml

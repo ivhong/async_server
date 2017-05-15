@@ -1,0 +1,9 @@
+@startuml
+(*) --> "api接口"
+if "判断账户密码" then
+    -->[yes] 根据账户字段channel生成实例
+    -->调用实例send方法发送邮件
+else
+    ->[false] 退出
+endif
+@enduml
