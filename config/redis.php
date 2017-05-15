@@ -9,7 +9,7 @@ return [
     'server'=>[
         'host' => '127.0.0.1',
         'port' => '6379',
-        'pass' => '0Ra486wRjN8UhBWa8108evnz2VQ0AGjr',
+        'pass' => '0z2VQ0AGjr',
     ],
     /**
      * 队列配置
