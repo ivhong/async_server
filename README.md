@@ -27,7 +27,7 @@ php多进程 + redis队列 实现异步处理服务框架。
 >查看状态: /bin/mqmonitor.sh status<br>
 
 # 日志查看
-所有的日志文件均放在 [paht]/runtime／ 文件夹下，文件夹说明<br>
+所有的日志文件均放在 [paht]/runtime／ 文件夹下，文件说明<br>
 >cache/access_token [系统级别&业务级别] 微信access token的管理<br>
 >deamon/log [系统级别] 守护进程输出<br>
 >mq/log* [系统级别]队列主进程日志<br>
