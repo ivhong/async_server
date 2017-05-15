@@ -19,7 +19,7 @@ php多进程 + redis队列 实现异步处理服务框架。
 
 3. 确保[path]/runtime 目录webserver有可写权限
 
-4. 修改 [path]/bin/mqmonitor.sh 第一行，指定php命令位置
+4. 修改 [path]/bin/mqmonitor.sh basepath 和 basecmd 参数
 
 5. 服务器控制
 >启动: /bin/mqmonitor.sh start<br>
