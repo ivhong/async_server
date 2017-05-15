@@ -11,42 +11,18 @@ class Shiqusdkalert extends Driver{
     public $notify_id = 0;
     
     //郭磊账户
-    const appid = 'wxaade488e19d86b90';
-    const secret = '90d276a4f1911d5a3f720b6a92551b11';
+    const appid = '88e19d86b90';
+    const secret = '911d5a3f720b6a92551b11';
     
     //接受模版消息的openid
     public $openids = [
-        //王长宏
-        'ofAv2vkO58A3W8Spw58Y7K4gQH1E',
-        //Center
-        'ofAv2vkD0RBN3LlIg-xyVpxJzih4',
-        //杨彬彬
-        'ofAv2vh_1SWLAKSX_YjbI6pC57NM',
-        //微笑
-        'ofAv2vmPo0BKJFSLJH2FMsGU_9yM',
-        //Sean
-        'ofAv2vrC3_EWravoEpnS65xJHcqk',
-        //文伟
-        'ofAv2vkDLVpSoz2sIhQWTvYp5Nrw',
-        //李伟
-        'ofAv2vj8zsk7BEd128XtsAMl9Cpw',
-        //蓝枫清
-        'ofAv2vkE9iNTn_Vna9-_OnxGOz6Q',
-        //安伟
-        'ofAv2vql8qLyyS2Ec7mqN-IkD12c',
-        //S磊
-        'ofAv2vtFtxD6HK-cO0otDasnxz0I', 
-        //阿运
-        'ofAv2viUn4sAmyrqV4TOPcf5KWzc',
-        //王上游
-        'ofAv2vmXxDTOtBgW7IK15GtaJF9E',
         
     ];
     //微信模版id
-    const tmplid = '09XxWpRT-0z_yRmR6hI6s8hIxaX9HA8mQTP8ScqnN5U';
+    const tmplid = 'T-0z_yRmR6hI6s8hIxaX9HA8mQTP8ScqnN5U';
     
     //详细页面地址
-    const url = 'http://as.project.social-touch.com/ShiqusdkAlert/show';
+    const url = 'http://';
     
     /**
      * 设置要处理的数据

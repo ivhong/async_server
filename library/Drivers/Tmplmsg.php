@@ -11,24 +11,17 @@ class TmplMsg extends Driver{
     public $notify_id = 0;
     
     //郭磊账户
-    const appid = 'wxaade488e19d86b90';
-    const secret = '90d276a4f1911d5a3f720b6a92551b11';
+    const appid = '488e19d86b90';
+    const secret = 'a4f1911d5a3f720b6a92551b11';
     
     //微信模版id
-    const tmplid = 'isHw7rAe6jUjOgtNtSN3i1FyC4PGxYBZYHXhKRet06o';
+    const tmplid = '6jUjOgtNtSN3i1FyC4PGxYBZYHXhKRet06o';
     
     //详细页面地址
-    const url = 'http://as.project.social-touch.com/tmplmsg/show';
+    const url = '';
     //所有的模版消息，都要发送给这些人
     public $def_openids = [
-        //王长宏
-        'ofAv2vkO58A3W8Spw58Y7K4gQH1E', 
-        //王上游
-        'ofAv2vmXxDTOtBgW7IK15GtaJF9E',
-        //李伟
-        'ofAv2vj8zsk7BEd128XtsAMl9Cpw',
-        //安伟
-        'ofAv2vql8qLyyS2Ec7mqN-IkD12c'];
+        'ql8qLyyS2Ec7mqN-IkD12c'];
     
     /**
      * 设置要处理的数据
