@@ -15,8 +15,8 @@ class AliyunMailer{
     public $error = ['code'=>0,'msg'=>''];
 
     public function __construct($key='',$token=''){
-        $this->key = $key ? $key : 'scrm_cs';
-        $this->token = $token ? $token : '004b6ee07fc00377119ccb0c18eb3807';
+        $this->key = $key ? $key : 'xxxxx';
+        $this->token = $token ? $token : '7fc00377119ccb0c18eb3';
         if(empty($this->key) || empty($this->token)){
             throw new \Exception('无效的key,token',20001);
         }
