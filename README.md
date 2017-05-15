@@ -1,6 +1,6 @@
 # async_server
 php多进程 + redis队列 实现异步处理服务框架。
-
+>背景介绍和详细文档请参考 doc/异步处理系统.docx(框架介绍)  doc/短信系统.docx（服务定制）
 # 部署方式
 
 1. 修改配置文件 <br>
@@ -15,7 +15,7 @@ php多进程 + redis队列 实现异步处理服务框架。
 >>e. [path]/config/chuanglan.php 创蓝（一个短信渠道）短信渠道配置,如果使用短信渠道，可以参考这个做二次开发<br>
 >>f. [path]/config/curl.php curl 运行配置<br>
 
-2. 导入sql
+2. 导入sql doc/async_server.sql
 
 3. 确保[path]/runtime 目录webserver有可写权限
 
